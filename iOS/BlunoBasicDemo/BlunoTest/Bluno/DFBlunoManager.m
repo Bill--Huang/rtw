@@ -104,8 +104,7 @@
     [bleDev.centralManager cancelPeripheralConnection:bleDev.peripheral];
 }
 
-- (void)writeDataToDevice:(NSData*)data Device:(DFBlunoDevice*)dev
-{
+- (void)writeDataToDevice:(NSData*)data Device:(DFBlunoDevice*)dev {
     if (!_bSupported || data == nil)
     {
         return;

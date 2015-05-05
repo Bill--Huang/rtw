@@ -152,7 +152,7 @@
         }
         
         cell = self.cellDevices;
-	}
+    }
     
     UILabel* lbName             = (UILabel*)[cell viewWithTag:1];
     UILabel* lbUUID             = (UILabel*)[cell viewWithTag:2];
@@ -196,5 +196,7 @@
     self.viewDevices.hidden = YES;
     [self.SearchIndicator stopAnimating];
 }
+
+
 
 @end
