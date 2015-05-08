@@ -7,7 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AppDelegate.h"
+#import "ASIHTTPRequest.h"
+
 
 @interface RequestHelper : NSObject
+
+/**
+ *  Singleton
+ *
+ *  @return id
+ */
++ (id)sharedRequestHelper;
+
+- (ASIHTTPRequest *) sendRequestWithURL: (NSURL *) url;
+
 
 @end

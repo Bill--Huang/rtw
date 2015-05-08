@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WeatherHelper.h"
+#import "EnumCollection.h"
 
 @interface ViewController : UIViewController
 
+@property (strong, nonatomic) WeatherHelper *weatherHelper;
 
 @end
 

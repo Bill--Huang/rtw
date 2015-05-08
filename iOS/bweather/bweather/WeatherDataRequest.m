@@ -10,4 +10,17 @@
 
 @implementation WeatherDataRequest
 
+- (id) init {
+    if (self = [super init]) {
+        
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) send {
+    NSLog(@"Error: Invoke Base Interface Method: send");
+    return  nil;
+}
+
 @end

@@ -9,5 +9,9 @@
 #ifndef bweather_EnumCollection_h
 #define bweather_EnumCollection_h
 
+typedef NS_ENUM(NSUInteger, APIType) {
+    SWA,
+    Yahoo
+};
 
 #endif

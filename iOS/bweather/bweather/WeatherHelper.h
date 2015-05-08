@@ -7,7 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "EnumCollection.h"
+
+#import "ForecastDataEntity.h"
+#import "IndexDataEntity.h"
 
 @interface WeatherHelper : NSObject
+
+- (id) init;
+- (ForecastDataEntity *) getForecastWeatherEntityWithAPIType: (APIType) type;
+- (IndexDataEntity *) getIndexWeatherEntity;
 
 @end

@@ -10,4 +10,21 @@
 
 @implementation YForecastDataEntity
 
+- (id) init {
+    if(self = [super init]) {
+        // init
+    }
+    
+    return self;
+}
+
+- (id) initWithDictionary: (NSDictionary *) dictionary; {
+    if([self init]) {
+        self.dictionary = dictionary;
+    }
+    
+    return self;
+}
+
+
 @end

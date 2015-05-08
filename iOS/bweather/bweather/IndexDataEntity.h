@@ -10,4 +10,6 @@
 
 @interface IndexDataEntity : NSObject
 
+- (id) init;
+
 @end

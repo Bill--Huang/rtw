@@ -8,6 +8,14 @@
 
 #import "WeatherDataRequest.h"
 
+/**
+ *  SWA API Request
+ */
 @interface SWAWeatherDataRequest : WeatherDataRequest
+
+@property(strong, nonatomic) NSString *aid;
+@property(strong, nonatomic) NSDate *date;
+
+- (id) initWithAreaId: (NSString *) aid AndDate: (NSDate *) date;
 
 @end

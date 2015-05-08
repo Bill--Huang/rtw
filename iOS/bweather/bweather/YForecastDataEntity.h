@@ -6,8 +6,10 @@
 //  Copyright (c) 2015年 BillDev. All rights reserved.
 //
 
-#import "ForcastDataEntity.h"
+#import "ForecastDataEntity.h"
 
-@interface YForecastDataEntity : ForcastDataEntity
+@interface YForecastDataEntity : ForecastDataEntity
+
+- (id) init;
 
 @end

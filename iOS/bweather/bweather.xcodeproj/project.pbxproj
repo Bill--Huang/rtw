@@ -8,9 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		5F1B9237B570F78623AFACDF /* libPods-bweather.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44C2BE02B299EA3D42FB248E /* libPods-bweather.a */; };
+		A91FE3151AFA4E4200DCDF2F /* WeatherHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A91FE3141AFA4E4200DCDF2F /* WeatherHelper.m */; };
+		A91FE3181AFA519F00DCDF2F /* ForecastDataEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = A91FE3171AFA519F00DCDF2F /* ForecastDataEntity.m */; };
+		A91FE31B1AFA51B100DCDF2F /* IndexDataEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = A91FE31A1AFA51B100DCDF2F /* IndexDataEntity.m */; };
+		A91FE31E1AFA520600DCDF2F /* SWAForecastDataEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = A91FE31D1AFA520600DCDF2F /* SWAForecastDataEntity.m */; };
+		A91FE3221AFA7CD200DCDF2F /* YQL.m in Sources */ = {isa = PBXBuildFile; fileRef = A91FE3211AFA7CD200DCDF2F /* YQL.m */; };
+		A91FE3271AFBACCB00DCDF2F /* RequestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A91FE3261AFBACCB00DCDF2F /* RequestHelper.m */; };
+		A91FE32B1AFBB20A00DCDF2F /* WeatherDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A91FE32A1AFBB20A00DCDF2F /* WeatherDataRequest.m */; };
+		A91FE32E1AFBB21C00DCDF2F /* SWAWeatherDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A91FE32D1AFBB21C00DCDF2F /* SWAWeatherDataRequest.m */; };
+		A91FE3311AFBB22800DCDF2F /* YWeatherDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A91FE3301AFBB22800DCDF2F /* YWeatherDataRequest.m */; };
+		A92F51831AFBBCE7009A71C1 /* YForecastDataEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = A92F51821AFBBCE7009A71C1 /* YForecastDataEntity.m */; };
 		A98FA94A1AF91D2200E0C4E1 /* NSString+encrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = A98FA9491AF91D2200E0C4E1 /* NSString+encrypto.m */; };
 		A98FA94D1AF91D8F00E0C4E1 /* SecurityUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = A98FA94C1AF91D8F00E0C4E1 /* SecurityUtility.m */; };
 		A98FA9521AF91F8200E0C4E1 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = A98FA9501AF91F8200E0C4E1 /* GTMBase64.m */; };
+		A9B908211AFA494100D7CF08 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A9B908201AFA494100D7CF08 /* libsqlite3.0.dylib */; };
 		A9DABBDD1AF4EC0600B9D091 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DABBDC1AF4EC0600B9D091 /* main.m */; };
 		A9DABBE01AF4EC0600B9D091 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DABBDF1AF4EC0600B9D091 /* AppDelegate.m */; };
 		A9DABBE31AF4EC0600B9D091 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DABBE21AF4EC0600B9D091 /* ViewController.m */; };
@@ -33,6 +44,27 @@
 /* Begin PBXFileReference section */
 		44C2BE02B299EA3D42FB248E /* libPods-bweather.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-bweather.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4B5C8C98FCC0B0716673826 /* Pods-bweather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bweather.release.xcconfig"; path = "Pods/Target Support Files/Pods-bweather/Pods-bweather.release.xcconfig"; sourceTree = "<group>"; };
+		A91FE3131AFA4E4200DCDF2F /* WeatherHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherHelper.h; sourceTree = "<group>"; };
+		A91FE3141AFA4E4200DCDF2F /* WeatherHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherHelper.m; sourceTree = "<group>"; };
+		A91FE3161AFA519F00DCDF2F /* ForecastDataEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastDataEntity.h; sourceTree = "<group>"; };
+		A91FE3171AFA519F00DCDF2F /* ForecastDataEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastDataEntity.m; sourceTree = "<group>"; };
+		A91FE3191AFA51B100DCDF2F /* IndexDataEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexDataEntity.h; sourceTree = "<group>"; };
+		A91FE31A1AFA51B100DCDF2F /* IndexDataEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexDataEntity.m; sourceTree = "<group>"; };
+		A91FE31C1AFA520600DCDF2F /* SWAForecastDataEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWAForecastDataEntity.h; sourceTree = "<group>"; };
+		A91FE31D1AFA520600DCDF2F /* SWAForecastDataEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWAForecastDataEntity.m; sourceTree = "<group>"; };
+		A91FE3201AFA7CD200DCDF2F /* YQL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQL.h; sourceTree = "<group>"; };
+		A91FE3211AFA7CD200DCDF2F /* YQL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQL.m; sourceTree = "<group>"; };
+		A91FE3251AFBACCB00DCDF2F /* RequestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestHelper.h; sourceTree = "<group>"; };
+		A91FE3261AFBACCB00DCDF2F /* RequestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestHelper.m; sourceTree = "<group>"; };
+		A91FE3281AFBB11C00DCDF2F /* EnumCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnumCollection.h; sourceTree = "<group>"; };
+		A91FE3291AFBB20A00DCDF2F /* WeatherDataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherDataRequest.h; sourceTree = "<group>"; };
+		A91FE32A1AFBB20A00DCDF2F /* WeatherDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherDataRequest.m; sourceTree = "<group>"; };
+		A91FE32C1AFBB21C00DCDF2F /* SWAWeatherDataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWAWeatherDataRequest.h; sourceTree = "<group>"; };
+		A91FE32D1AFBB21C00DCDF2F /* SWAWeatherDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWAWeatherDataRequest.m; sourceTree = "<group>"; };
+		A91FE32F1AFBB22800DCDF2F /* YWeatherDataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YWeatherDataRequest.h; sourceTree = "<group>"; };
+		A91FE3301AFBB22800DCDF2F /* YWeatherDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YWeatherDataRequest.m; sourceTree = "<group>"; };
+		A92F51811AFBBCE7009A71C1 /* YForecastDataEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YForecastDataEntity.h; sourceTree = "<group>"; };
+		A92F51821AFBBCE7009A71C1 /* YForecastDataEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YForecastDataEntity.m; sourceTree = "<group>"; };
 		A98FA9481AF91D2200E0C4E1 /* NSString+encrypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+encrypto.h"; sourceTree = "<group>"; };
 		A98FA9491AF91D2200E0C4E1 /* NSString+encrypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+encrypto.m"; sourceTree = "<group>"; };
 		A98FA94B1AF91D8F00E0C4E1 /* SecurityUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityUtility.h; sourceTree = "<group>"; };
@@ -40,6 +72,7 @@
 		A98FA94F1AF91F8200E0C4E1 /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
 		A98FA9501AF91F8200E0C4E1 /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
 		A98FA9511AF91F8200E0C4E1 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		A9B908201AFA494100D7CF08 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		A9DABBD71AF4EC0600B9D091 /* bweather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bweather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9DABBDB1AF4EC0600B9D091 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9DABBDC1AF4EC0600B9D091 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -61,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9B908211AFA494100D7CF08 /* libsqlite3.0.dylib in Frameworks */,
 				5F1B9237B570F78623AFACDF /* libPods-bweather.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -84,6 +118,55 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		A91FE3121AFA4E1800DCDF2F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A92F51851AFBBD67009A71C1 /* WeatherDataRequest */,
+				A92F51841AFBBD4E009A71C1 /* ForecastDataEntity */,
+				A91FE3131AFA4E4200DCDF2F /* WeatherHelper.h */,
+				A91FE3141AFA4E4200DCDF2F /* WeatherHelper.m */,
+				A91FE3191AFA51B100DCDF2F /* IndexDataEntity.h */,
+				A91FE31A1AFA51B100DCDF2F /* IndexDataEntity.m */,
+				A91FE3281AFBB11C00DCDF2F /* EnumCollection.h */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A91FE31F1AFA7CD200DCDF2F /* yql */ = {
+			isa = PBXGroup;
+			children = (
+				A91FE3201AFA7CD200DCDF2F /* YQL.h */,
+				A91FE3211AFA7CD200DCDF2F /* YQL.m */,
+			);
+			path = yql;
+			sourceTree = "<group>";
+		};
+		A92F51841AFBBD4E009A71C1 /* ForecastDataEntity */ = {
+			isa = PBXGroup;
+			children = (
+				A91FE3161AFA519F00DCDF2F /* ForecastDataEntity.h */,
+				A91FE3171AFA519F00DCDF2F /* ForecastDataEntity.m */,
+				A91FE31C1AFA520600DCDF2F /* SWAForecastDataEntity.h */,
+				A91FE31D1AFA520600DCDF2F /* SWAForecastDataEntity.m */,
+				A92F51811AFBBCE7009A71C1 /* YForecastDataEntity.h */,
+				A92F51821AFBBCE7009A71C1 /* YForecastDataEntity.m */,
+			);
+			name = ForecastDataEntity;
+			sourceTree = "<group>";
+		};
+		A92F51851AFBBD67009A71C1 /* WeatherDataRequest */ = {
+			isa = PBXGroup;
+			children = (
+				A91FE3291AFBB20A00DCDF2F /* WeatherDataRequest.h */,
+				A91FE32A1AFBB20A00DCDF2F /* WeatherDataRequest.m */,
+				A91FE32C1AFBB21C00DCDF2F /* SWAWeatherDataRequest.h */,
+				A91FE32D1AFBB21C00DCDF2F /* SWAWeatherDataRequest.m */,
+				A91FE32F1AFBB22800DCDF2F /* YWeatherDataRequest.h */,
+				A91FE3301AFBB22800DCDF2F /* YWeatherDataRequest.m */,
+			);
+			name = WeatherDataRequest;
+			sourceTree = "<group>";
+		};
 		A98FA9461AF91C2B00E0C4E1 /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +179,8 @@
 		A98FA9471AF91C5D00E0C4E1 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				A91FE3251AFBACCB00DCDF2F /* RequestHelper.h */,
+				A91FE3261AFBACCB00DCDF2F /* RequestHelper.m */,
 				A98FA94B1AF91D8F00E0C4E1 /* SecurityUtility.h */,
 				A98FA94C1AF91D8F00E0C4E1 /* SecurityUtility.m */,
 			);
@@ -115,6 +200,7 @@
 		A98FA9531AF91F8F00E0C4E1 /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				A91FE31F1AFA7CD200DCDF2F /* yql */,
 				A98FA94E1AF91F8200E0C4E1 /* GTMBase64 */,
 			);
 			name = lib;
@@ -143,6 +229,7 @@
 		A9DABBD91AF4EC0600B9D091 /* bweather */ = {
 			isa = PBXGroup;
 			children = (
+				A91FE3121AFA4E1800DCDF2F /* Model */,
 				A98FA9531AF91F8F00E0C4E1 /* lib */,
 				A98FA9471AF91C5D00E0C4E1 /* Utility */,
 				A98FA9461AF91C2B00E0C4E1 /* Category */,
@@ -187,6 +274,7 @@
 		B3314883096D9C81408FF348 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A9B908201AFA494100D7CF08 /* libsqlite3.0.dylib */,
 				44C2BE02B299EA3D42FB248E /* libPods-bweather.a */,
 			);
 			name = Frameworks;
@@ -327,12 +415,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A91FE3221AFA7CD200DCDF2F /* YQL.m in Sources */,
 				A98FA94D1AF91D8F00E0C4E1 /* SecurityUtility.m in Sources */,
 				A98FA9521AF91F8200E0C4E1 /* GTMBase64.m in Sources */,
+				A91FE32B1AFBB20A00DCDF2F /* WeatherDataRequest.m in Sources */,
 				A9DABBE31AF4EC0600B9D091 /* ViewController.m in Sources */,
 				A98FA94A1AF91D2200E0C4E1 /* NSString+encrypto.m in Sources */,
+				A91FE31B1AFA51B100DCDF2F /* IndexDataEntity.m in Sources */,
+				A92F51831AFBBCE7009A71C1 /* YForecastDataEntity.m in Sources */,
+				A91FE31E1AFA520600DCDF2F /* SWAForecastDataEntity.m in Sources */,
+				A91FE3311AFBB22800DCDF2F /* YWeatherDataRequest.m in Sources */,
+				A91FE3271AFBACCB00DCDF2F /* RequestHelper.m in Sources */,
 				A9DABBE01AF4EC0600B9D091 /* AppDelegate.m in Sources */,
 				A9DABBDD1AF4EC0600B9D091 /* main.m in Sources */,
+				A91FE3151AFA4E4200DCDF2F /* WeatherHelper.m in Sources */,
+				A91FE32E1AFBB21C00DCDF2F /* SWAWeatherDataRequest.m in Sources */,
+				A91FE3181AFA519F00DCDF2F /* ForecastDataEntity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,4 +10,13 @@
 
 @implementation IndexDataEntity
 
+- (id) init {
+    if(self = [super init]) {
+        // init
+    }
+    
+    return self;
+}
+
+
 @end
