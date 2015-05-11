@@ -17,6 +17,9 @@
 		A91FE32B1AFBB20A00DCDF2F /* WeatherDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A91FE32A1AFBB20A00DCDF2F /* WeatherDataRequest.m */; };
 		A91FE32E1AFBB21C00DCDF2F /* SWAWeatherDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A91FE32D1AFBB21C00DCDF2F /* SWAWeatherDataRequest.m */; };
 		A91FE3311AFBB22800DCDF2F /* YWeatherDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A91FE3301AFBB22800DCDF2F /* YWeatherDataRequest.m */; };
+		A9254F611B00ECBC0012B114 /* WeatherDataUnitsStructure.m in Sources */ = {isa = PBXBuildFile; fileRef = A9254F601B00ECBC0012B114 /* WeatherDataUnitsStructure.m */; };
+		A9254F641B00F04B0012B114 /* DayCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = A9254F631B00F04B0012B114 /* DayCondition.m */; };
+		A9254F671B00F1160012B114 /* ForecastCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = A9254F661B00F1160012B114 /* ForecastCondition.m */; };
 		A92F51831AFBBCE7009A71C1 /* YForecastDataEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = A92F51821AFBBCE7009A71C1 /* YForecastDataEntity.m */; };
 		A98FA94A1AF91D2200E0C4E1 /* NSString+encrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = A98FA9491AF91D2200E0C4E1 /* NSString+encrypto.m */; };
 		A98FA94D1AF91D8F00E0C4E1 /* SecurityUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = A98FA94C1AF91D8F00E0C4E1 /* SecurityUtility.m */; };
@@ -63,6 +66,12 @@
 		A91FE32D1AFBB21C00DCDF2F /* SWAWeatherDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWAWeatherDataRequest.m; sourceTree = "<group>"; };
 		A91FE32F1AFBB22800DCDF2F /* YWeatherDataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YWeatherDataRequest.h; sourceTree = "<group>"; };
 		A91FE3301AFBB22800DCDF2F /* YWeatherDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YWeatherDataRequest.m; sourceTree = "<group>"; };
+		A9254F5F1B00ECBC0012B114 /* WeatherDataUnitsStructure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherDataUnitsStructure.h; sourceTree = "<group>"; };
+		A9254F601B00ECBC0012B114 /* WeatherDataUnitsStructure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherDataUnitsStructure.m; sourceTree = "<group>"; };
+		A9254F621B00F04B0012B114 /* DayCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayCondition.h; sourceTree = "<group>"; };
+		A9254F631B00F04B0012B114 /* DayCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayCondition.m; sourceTree = "<group>"; };
+		A9254F651B00F1160012B114 /* ForecastCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastCondition.h; sourceTree = "<group>"; };
+		A9254F661B00F1160012B114 /* ForecastCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastCondition.m; sourceTree = "<group>"; };
 		A92F51811AFBBCE7009A71C1 /* YForecastDataEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YForecastDataEntity.h; sourceTree = "<group>"; };
 		A92F51821AFBBCE7009A71C1 /* YForecastDataEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YForecastDataEntity.m; sourceTree = "<group>"; };
 		A98FA9481AF91D2200E0C4E1 /* NSString+encrypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+encrypto.h"; sourceTree = "<group>"; };
@@ -150,6 +159,12 @@
 				A91FE31D1AFA520600DCDF2F /* SWAForecastDataEntity.m */,
 				A92F51811AFBBCE7009A71C1 /* YForecastDataEntity.h */,
 				A92F51821AFBBCE7009A71C1 /* YForecastDataEntity.m */,
+				A9254F5F1B00ECBC0012B114 /* WeatherDataUnitsStructure.h */,
+				A9254F601B00ECBC0012B114 /* WeatherDataUnitsStructure.m */,
+				A9254F621B00F04B0012B114 /* DayCondition.h */,
+				A9254F631B00F04B0012B114 /* DayCondition.m */,
+				A9254F651B00F1160012B114 /* ForecastCondition.h */,
+				A9254F661B00F1160012B114 /* ForecastCondition.m */,
 			);
 			name = ForecastDataEntity;
 			sourceTree = "<group>";
@@ -422,7 +437,9 @@
 				A9DABBE31AF4EC0600B9D091 /* ViewController.m in Sources */,
 				A98FA94A1AF91D2200E0C4E1 /* NSString+encrypto.m in Sources */,
 				A91FE31B1AFA51B100DCDF2F /* IndexDataEntity.m in Sources */,
+				A9254F671B00F1160012B114 /* ForecastCondition.m in Sources */,
 				A92F51831AFBBCE7009A71C1 /* YForecastDataEntity.m in Sources */,
+				A9254F611B00ECBC0012B114 /* WeatherDataUnitsStructure.m in Sources */,
 				A91FE31E1AFA520600DCDF2F /* SWAForecastDataEntity.m in Sources */,
 				A91FE3311AFBB22800DCDF2F /* YWeatherDataRequest.m in Sources */,
 				A91FE3271AFBACCB00DCDF2F /* RequestHelper.m in Sources */,
@@ -430,6 +447,7 @@
 				A9DABBDD1AF4EC0600B9D091 /* main.m in Sources */,
 				A91FE3151AFA4E4200DCDF2F /* WeatherHelper.m in Sources */,
 				A91FE32E1AFBB21C00DCDF2F /* SWAWeatherDataRequest.m in Sources */,
+				A9254F641B00F04B0012B114 /* DayCondition.m in Sources */,
 				A91FE3181AFA519F00DCDF2F /* ForecastDataEntity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

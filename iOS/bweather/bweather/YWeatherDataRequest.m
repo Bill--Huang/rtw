@@ -24,7 +24,7 @@
     // get woeid by cityinfo and get weather data
     NSDictionary* weatherResults = [self query:
                                     [NSString stringWithFormat: @"select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='%@') and u = 'c'", self.cityInfo]];
-    return weatherResults;
+    return weatherResults[@"query"][@"results"];
     
 //    
 //    NSDictionary* cityResults = [self query:

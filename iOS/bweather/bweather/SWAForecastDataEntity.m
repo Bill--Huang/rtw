@@ -18,9 +18,9 @@
     return self;
 }
 
-- (id) initWithDictionary: (NSDictionary *) dictionary; {
+- (id) initWithDictionary: (NSDictionary *) dic; {
     if([self init]) {
-        self.dictionary = dictionary;
+        self.rawDictionary = dic;
         
 //        NSLog(self.weatherString);
     }

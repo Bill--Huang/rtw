@@ -33,7 +33,6 @@
         // TODO:
     }
     
-    
     return self;
 }
 
@@ -42,10 +41,6 @@
     [request startSynchronous];
     return request;
 }
-
-
-
-
 
 #pragma mark - Helper
 - (AppDelegate *)appDelegate

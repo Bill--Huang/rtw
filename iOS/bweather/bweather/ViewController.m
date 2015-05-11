@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "YForecastDataEntity.h"
 
 @interface ViewController ()
 
@@ -20,7 +20,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     self.weatherHelper = [[WeatherHelper alloc] init];
-    [self.weatherHelper getForecastWeatherEntityWithAPIType: Yahoo];
+    YForecastDataEntity* yahooForecastEntity = (YForecastDataEntity *)[self.weatherHelper getForecastWeatherEntityWithAPIType: Yahoo];
     
 }
 
@@ -28,10 +28,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
-
-
-
 
 @end
