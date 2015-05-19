@@ -13,12 +13,8 @@
  */
 @interface YWeatherDataRequest : WeatherDataRequest
 
-@property(strong, nonatomic) NSString *cityInfo;
-@property(strong, nonatomic) NSDate *date;
-@property(strong, nonatomic) NSString *woeid;
-@property(strong, nonatomic) YQL *yql;
+@property(strong, nonatomic) NSArray *woeidArray;
 
-- (id) initWithCityInfo: (NSString *) info;
-
+- (id) initWithWoeids: (NSArray *) array;
 
 @end

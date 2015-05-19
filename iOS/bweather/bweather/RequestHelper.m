@@ -39,6 +39,7 @@
 - (ASIHTTPRequest *) sendRequestWithURL: (NSURL *) url {
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
     [request startSynchronous];
+    
     return request;
 }
 

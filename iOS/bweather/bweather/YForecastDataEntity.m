@@ -24,11 +24,8 @@
         self.unitStructuer = [[WeatherDataUnitsStructure alloc] init];
         
         NSDate *date = [NSDate date];
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"dd MM yyyy HH:mm"];
-        NSString *dateString = [dateFormatter stringFromDate:date];
         
-        self.requestUpdateTime = dateString;
+        self.requestUpdateTime = date;
     }
     
     return self;
@@ -46,11 +43,14 @@
 }
 
 - (void) convert {
-    if ([self.rawDictionary objectForKey:@"channel"]) {
-        NSDictionary* channelTempDic = self.rawDictionary[@"channel"];
+    if (self.rawDictionary != nil) {
+        
+        NSDictionary* channelTempDic = self.rawDictionary;
+        
         self.cityName = channelTempDic[@"location"][@"city"];
         self.countryName = channelTempDic[@"location"][@"country"];
         self.updateTime = channelTempDic[@"lastBuildDate"];
+        self.woeid = channelTempDic[@"woeid"];
         
         if([channelTempDic objectForKey:@"item"]) {
             NSDictionary* itemTempDic = channelTempDic[@"item"];

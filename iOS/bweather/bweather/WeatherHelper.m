@@ -7,13 +7,13 @@
 //
 
 #import "WeatherHelper.h"
+#import "RequestHelper.h"
 #import "SWAForecastDataEntity.h"
 #import "YForecastDataEntity.h"
 #import "SWAWeatherDataRequest.h"
 #import "YWeatherDataRequest.h"
 
-@implementation WeatherHelper
-
+@implementation WeatherHelper 
 - (id) init {
     if(self = [super init]) {
         // init
@@ -22,28 +22,35 @@
     return self;
 }
 
-- (ForecastDataEntity *) getForecastWeatherEntityWithAPIType: (APIType) type  {
+- (NSMutableArray *) getYForecastWeatherEntityWithArray: (NSArray *) array {
+    YWeatherDataRequest *request = [[YWeatherDataRequest alloc] initWithWoeids: array];
+    NSMutableArray *tempArray = [request send];
     
-    ForecastDataEntity* tempEntity = nil;
+    return tempArray;
+}
+
+- (ForecastDataEntity *) getSWAForecastWeatherEntity {
+    SWAWeatherDataRequest *request = [[SWAWeatherDataRequest alloc] initWithAreaId:nil
+                                                                           AndDate:nil];
+    //ForecastDataEntity *tempEntity = [[SWAForecastDataEntity alloc] initWithDictionary:[request send]];
     
-    switch (type) {
-        case SWA: {
-            NSLog(@"apid swa");
-            SWAWeatherDataRequest* request = [[SWAWeatherDataRequest alloc] initWithAreaId:nil
-                                                                                AndDate:nil];
-            tempEntity = [[SWAForecastDataEntity alloc] initWithDictionary:[request send]];
-            break;
-        }
-        case Yahoo: {
-            YWeatherDataRequest *request = [[YWeatherDataRequest alloc] initWithCityInfo: @"Shanghai"];
-            tempEntity = [[YForecastDataEntity alloc] initWithDictionary:[request send]];
-            break;
-        }
-        default:
-            break;
+    return nil;
+}
+
+- (NSString *) getCityWoeidWithLat: (float) lat AndLog: (float) log {
+    // get location' woeid
+    NSDictionary* woeidResult = [YQL query:
+                                 [NSString stringWithFormat: @"select * from geo.placefinder where text='%f, %f' and gflags='R'", lat, log]];
+    
+    // add
+    if(woeidResult != nil
+       && woeidResult[@"query"][@"results"][@"Result"][@"woeid"] != nil
+       && ![woeidResult[@"query"][@"results"][@"Result"][@"woeid"] isEqualToString:@""]) {
+        // get woeid
+        return woeidResult[@"query"][@"results"][@"Result"][@"woeid"];
     }
-    
-    return tempEntity;
+
+    return nil;
 }
 
 - (IndexDataEntity *) getIndexWeatherEntity {

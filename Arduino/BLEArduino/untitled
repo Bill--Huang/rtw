@@ -1,0 +1,25 @@
+
+    digitalWrite(ledPower, LOW);// 开启内部 LED
+    delayMicroseconds(samplingTime);//  开启 LED 后的 280us 的等待时间
+  
+    voMeasured = analogRead(measurePin);//  读取模拟值
+  
+    delayMicroseconds(deltaTime);//  40us 等待时间
+    digitalWrite(ledPower, HIGH);//  关闭 LED
+    delayMicroseconds(sleepTime);//
+     0 - 5V mapped to 0 - 1023 integer values
+     recover voltage
+    calcVoltage = voMeasured * (5.0 / 1024.0);// 将模拟值转换为电压值
+  
+     linear eqaution taken from http:www.howmuchsnow.com/arduino/airquality/
+     Chris Nafis (c) 2012
+    dustDensity = 0.17 * calcVoltage - 0.1;// 将电压值转换为粉尘密度输出单位
+  
+    StandardPrint("Raw Signal Value (0-1023): ");//
+    StandardPrint(Float2Str(voMeasured));//
+  
+    StandardPrint(" - Voltage: ");//
+    StandardPrint(Float2Str(calcVoltage));//
+    StandardPrint(" - Dust Density: ");//
+    StandardPrint(Float2Str(dustDensity));//  输出单位: 毫克/立方米
+    delay(1000);//

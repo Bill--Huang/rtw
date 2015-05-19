@@ -21,7 +21,7 @@
 @property (strong, nonatomic) NSString* countryName;
 @property (strong, nonatomic) NSString* woeid;
 @property (strong, nonatomic) NSString* updateTime;
-@property (strong, nonatomic) NSString* requestUpdateTime;
+@property (strong, nonatomic) NSDate* requestUpdateTime;
 @property (nonatomic) CGPoint cityLocation;
 @property (strong, nonatomic) DayCondition* todayCondition;
 @property (strong, nonatomic) NSMutableArray* dayForcastConditionsArray;

@@ -11,5 +11,7 @@
 @interface NSString(encrypto)
 
 - (NSString *)URLEncodedString;
+- (NSDictionary *)dictionaryWithJsonString;
+- (NSDictionary *)dictionaryWithJsonStringInkCFStringEncoding;
 
 @end

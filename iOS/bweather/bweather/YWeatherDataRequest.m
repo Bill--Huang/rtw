@@ -8,58 +8,64 @@
 
 #import "YWeatherDataRequest.h"
 #import "NSString+encrypto.h"
+#import "YForecastDataEntity.h"
+#import "UserDefaultDataHelper.h"
 
 @implementation YWeatherDataRequest
 
-- (id) initWithCityInfo: (NSString *) info {
+- (id) initWithWoeids: (NSArray *) array {
     if (self = [super init]) {
-        self.cityInfo = info;
-        self.yql = [[YQL alloc] init];
+        self.woeidArray = array;
     }
     
     return self;
+
 }
 
-- (NSDictionary *) send {
-    // get woeid by cityinfo and get weather data
-    NSDictionary* weatherResults = [self query:
-                                    [NSString stringWithFormat: @"select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='%@') and u = 'c'", self.cityInfo]];
-    return weatherResults[@"query"][@"results"];
+- (NSMutableArray *) send {
     
-//    
-//    NSDictionary* cityResults = [self query:
-//                                 [NSString stringWithFormat: @"select * from geo.placefinder where text = '%@'", self.cityInfo]];
-//    NSNumber *count = cityResults[@"query"][@"count"];
-//    
-//    if(count > 0) {
-//        NSDictionary *city = nil;
-//        
-//        if ([count isEqualToNumber:[NSNumber numberWithInt:1]]) {
-//            city = cityResults[@"query"][@"results"][@"Result"];
-//        } else {
-//            NSArray *cityArray = cityResults[@"query"][@"results"][@"Result"];
-//            city = [cityArray objectAtIndex:0];
-//        }
-//        
-//        self.woeid = city[@"woeid"];
-//        
-//        NSDictionary* weatherResults = [self query:
-//                                     [NSString stringWithFormat: @"select * from weather.forecast where woeid = '%@' and u = 'c'", self.woeid]];
-//        return weatherResults;
-//    } else {
-//        // no city
-//        NSLog(@"can't find city");
-//        return nil;
-//    }
-//    
-//    return nil;
+    NSString *unit = @"c";
+    
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    NSNumber *toggle = [userDefault objectForKey:SETTING_DIC][SETTING_U_C];
+    
+    if([toggle intValue] != 1) {
+        unit = @"f";
+    }
+    
+    // Example: SELECT * FROM weather.forecast WHERE woeid="2502265" or woeid="56043481"
+    NSString *woeidParmas = [NSString stringWithFormat:@"u = '%@' and woeid='%@'", unit, [self.woeidArray objectAtIndex:0]];
+    if(self.woeidArray.count > 1) {
+        for (int i = 1; i < self.woeidArray.count; i++) {
+            NSString* temp = [NSString stringWithFormat:@"woeid='%@'", [self.woeidArray objectAtIndex:i]];
+            woeidParmas = [NSString stringWithFormat:@"%@ or u = '%@' and %@", woeidParmas, unit, temp];
+        }
+    }
+    
+    // get woeid by cityinfo and get weather data
+    NSDictionary* weatherResults = [YQL query:
+                                    [NSString stringWithFormat: @"select * from weather.forecast where u = 'c' and %@", woeidParmas]];
+    
+    // get dic
+    // generat entity array
+    return [self generateEntityDic: weatherResults];
 }
 
-- (NSDictionary *) query: (NSString *) statement {
-    NSString *queryString = statement;
-    queryString = [queryString URLEncodedString];
-    NSDictionary *results = [self.yql query:queryString];
-    return results;
+- (NSMutableArray *) generateEntityDic: (NSDictionary *) dic {
+    
+    NSMutableArray *result = [[NSMutableArray alloc] init];
+    
+    NSArray* dics = dic[@"query"][@"results"][@"channel"];
+    
+    for (int i = 0; i < dics.count; i++) {
+        NSDictionary* tempDic = [dics objectAtIndex:i];
+        [tempDic setValue: [self.woeidArray objectAtIndex:i] forKey: @"woeid"];
+        YForecastDataEntity *temp = [[YForecastDataEntity alloc] initWithDictionary: tempDic];
+        
+        [result addObject:temp];
+    }
+    
+    return result;
 }
 
 @end

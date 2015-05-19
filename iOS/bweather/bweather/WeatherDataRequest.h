@@ -13,6 +13,6 @@
 
 - (id) init;
 
-- (NSDictionary *) send;
+- (NSMutableArray *) send;
 
 @end

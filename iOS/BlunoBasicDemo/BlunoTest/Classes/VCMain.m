@@ -45,10 +45,10 @@
 
 - (IBAction)actionSearch:(id)sender
 {
-    [self.aryDevices removeAllObjects];
-    [self.tbDevices reloadData];
-    [self.SearchIndicator startAnimating];
-    self.viewDevices.hidden = NO;
+//    [self.aryDevices removeAllObjects];
+    //[self.tbDevices reloadData];
+    //[self.SearchIndicator startAnimating];
+    //self.viewDevices.hidden = NO;
     
     [self.blunoManager scan];
 }
@@ -66,7 +66,8 @@
     if (self.blunoDev.bReadyToWrite)
     {
         NSString* strTemp = self.txtSendMsg.text;
-        NSData* data = [strTemp dataUsingEncoding:NSUTF8StringEncoding];
+//        NSData* data = [strTemp dataUsingEncoding: NSUTF8StringEncoding];
+        NSData* data = [strTemp dataUsingEncoding: NSASCIIStringEncoding];
         [self.blunoManager writeDataToDevice:data Device:self.blunoDev];
     }
 }
@@ -80,43 +81,54 @@
 
 -(void)bleDidUpdateState:(BOOL)bleSupported
 {
-    if(bleSupported)
-    {
-        [self.blunoManager scan];
-    }
+//    if(bleSupported)
+//    {
+//        [self.blunoManager scan];
+//    }
 }
+
 -(void)didDiscoverDevice:(DFBlunoDevice*)dev
 {
-    BOOL bRepeat = NO;
-    for (DFBlunoDevice* bleDevice in self.aryDevices)
-    {
-        if ([bleDevice isEqual:dev])
-        {
-            bRepeat = YES;
-            break;
-        }
+    
+    
+    if(self.blunoDev != nil) {
+        [self.blunoManager stop];
+    } else {
+        self.blunoDev = dev;
+        [self.blunoManager connectToDevice:self.blunoDev];
     }
-    if (!bRepeat)
-    {
-        [self.aryDevices addObject:dev];
-    }
-    [self.tbDevices reloadData];
+    
+//    BOOL bRepeat = NO;
+//    for (DFBlunoDevice* bleDevice in self.aryDevices)
+//    {
+//        if ([bleDevice isEqual:dev])
+//        {
+//            bRepeat = YES;
+//            break;
+//        }
+//    }
+//    if (!bRepeat)
+//    {
+//        [self.aryDevices addObject:dev];
+//    }
+//    [self.tbDevices reloadData];
 }
--(void)readyToCommunicate:(DFBlunoDevice*)dev
-{
-    self.blunoDev = dev;
+
+-(void)readyToCommunicate:(DFBlunoDevice*)dev {
     self.lbReady.text = @"Ready!";
+    self.blunoDev = dev;
 }
--(void)didDisconnectDevice:(DFBlunoDevice*)dev
-{
+
+-(void)didDisconnectDevice:(DFBlunoDevice*)dev {
     self.lbReady.text = @"Not Ready!";
+    self.blunoDev = nil;
 }
--(void)didWriteData:(DFBlunoDevice*)dev
-{
+
+-(void)didWriteData:(DFBlunoDevice*)dev {
     
 }
--(void)didReceiveData:(NSData*)data Device:(DFBlunoDevice*)dev
-{
+
+-(void)didReceiveData:(NSData*)data Device:(DFBlunoDevice*)dev {
     NSString* temp = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     NSLog(temp);
     self.lbReceivedMsg.text = temp;

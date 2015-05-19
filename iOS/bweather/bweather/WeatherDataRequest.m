@@ -18,7 +18,7 @@
     return self;
 }
 
-- (NSDictionary *) send {
+- (NSMutableArray *) send {
     NSLog(@"Error: Invoke Base Interface Method: send");
     return  nil;
 }

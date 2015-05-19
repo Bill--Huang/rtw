@@ -8,14 +8,24 @@
 
 #import <Foundation/Foundation.h>
 #import "EnumCollection.h"
-
 #import "ForecastDataEntity.h"
 #import "IndexDataEntity.h"
+
+
+//@protocol WeatherRequestDelegate
+//
+//- (void) requestWeatherFinished: (NSMutableArray *) weatherArray;
+//- (void) requestCityWoeidFinished: (NSString *) woeid;
+//- (void) requestDataFailed: (NSString *) message;
+//
+//@end
 
 @interface WeatherHelper : NSObject
 
 - (id) init;
-- (ForecastDataEntity *) getForecastWeatherEntityWithAPIType: (APIType) type;
+- (NSMutableArray *) getYForecastWeatherEntityWithArray: (NSArray *) array;
+- (ForecastDataEntity *) getSWAForecastWeatherEntity;
+- (NSString *) getCityWoeidWithLat: (float) lat AndLog: (float) log;
 - (IndexDataEntity *) getIndexWeatherEntity;
 
 @end
