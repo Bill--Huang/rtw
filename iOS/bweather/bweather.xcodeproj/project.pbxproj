@@ -44,6 +44,7 @@
 		A9980E851B07A4AB00D4DA00 /* BLEUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = A9980E7F1B07A4AB00D4DA00 /* BLEUtility.m */; };
 		A9980E861B07A4AB00D4DA00 /* DFBlunoDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = A9980E811B07A4AB00D4DA00 /* DFBlunoDevice.m */; };
 		A9980E871B07A4AB00D4DA00 /* DFBlunoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A9980E831B07A4AB00D4DA00 /* DFBlunoManager.m */; };
+		A99A18AE1B0B695200B8F2D6 /* RealTimeDataEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = A99A18AD1B0B695200B8F2D6 /* RealTimeDataEntity.m */; };
 		A9B908211AFA494100D7CF08 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A9B908201AFA494100D7CF08 /* libsqlite3.0.dylib */; };
 		A9C9A7AD1B0B134800A3232E /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C9A7AC1B0B134800A3232E /* AdSupport.framework */; };
 		A9DABBDD1AF4EC0600B9D091 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DABBDC1AF4EC0600B9D091 /* main.m */; };
@@ -139,6 +140,8 @@
 		A9980E811B07A4AB00D4DA00 /* DFBlunoDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DFBlunoDevice.m; sourceTree = "<group>"; };
 		A9980E821B07A4AB00D4DA00 /* DFBlunoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFBlunoManager.h; sourceTree = "<group>"; };
 		A9980E831B07A4AB00D4DA00 /* DFBlunoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DFBlunoManager.m; sourceTree = "<group>"; };
+		A99A18AC1B0B695200B8F2D6 /* RealTimeDataEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RealTimeDataEntity.h; sourceTree = "<group>"; };
+		A99A18AD1B0B695200B8F2D6 /* RealTimeDataEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RealTimeDataEntity.m; sourceTree = "<group>"; };
 		A9B908201AFA494100D7CF08 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		A9C9A7AC1B0B134800A3232E /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		A9DABBD71AF4EC0600B9D091 /* bweather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bweather.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -204,6 +207,8 @@
 				A91FE3281AFBB11C00DCDF2F /* EnumCollection.h */,
 				A9403D1C1B09C01700F8A760 /* UserDefaultDataHelper.h */,
 				A9403D1D1B09C01700F8A760 /* UserDefaultDataHelper.m */,
+				A99A18AC1B0B695200B8F2D6 /* RealTimeDataEntity.h */,
+				A99A18AD1B0B695200B8F2D6 /* RealTimeDataEntity.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -561,6 +566,7 @@
 				A9403D171B09B71B00F8A760 /* HandleCityData.m in Sources */,
 				A9403D1E1B09C01700F8A760 /* UserDefaultDataHelper.m in Sources */,
 				A9980E871B07A4AB00D4DA00 /* DFBlunoManager.m in Sources */,
+				A99A18AE1B0B695200B8F2D6 /* RealTimeDataEntity.m in Sources */,
 				A98FA94D1AF91D8F00E0C4E1 /* SecurityUtility.m in Sources */,
 				A98FA9521AF91F8200E0C4E1 /* GTMBase64.m in Sources */,
 				A9403D161B09B71B00F8A760 /* City.m in Sources */,

@@ -40,9 +40,6 @@
 //              error.localizedDescription);
 //    }
     
-    
-    
-    
     NSURL *url = [NSURL URLWithString:query];
     ASIHTTPRequest* request = [[RequestHelper sharedRequestHelper] sendRequestWithURL:url];
     NSError *error = [request error];
@@ -54,8 +51,6 @@
     } else {
         return nil;
     }
-
-    
     //return results;
 }
 

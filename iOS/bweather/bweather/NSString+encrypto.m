@@ -11,11 +11,14 @@
 
 @implementation NSString(encrypto)
 
-- (NSString *)URLEncodedString
-{
+- (NSString *)URLEncodedString {
     NSString *encodedString = (__bridge NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,(CFStringRef)self, nil, (CFStringRef) @"!$&'()*+,-./:;=?@_~%#[]", kCFStringEncodingUTF8);
     
     return encodedString;
+}
+
+- (NSString *)urlencode {
+    return [self stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 }
 
 - (NSDictionary *)dictionaryWithJsonString {

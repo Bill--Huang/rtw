@@ -28,6 +28,8 @@
 + (void) updateUserDefaultUnit: (NSNumber *) toggle;
 + (NSArray *) getUserDefaultCityArray;
 + (NSNumber *) getUserDefaultUnit;
-
++ (NSString *) getGPSWoeid;
++ (NSString *) getGPSCityName;
++ (NSString *) getGPSLocation;
 + (NSString *) getUUID;
 @end

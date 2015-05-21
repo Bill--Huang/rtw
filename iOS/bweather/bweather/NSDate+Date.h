@@ -11,5 +11,5 @@
 @interface NSDate(Date)
 
 - (NSString *) dateToStringWithFormate;
-
+- (NSString *) getTodayString;
 @end

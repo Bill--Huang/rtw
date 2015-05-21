@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bweather/yql/YQL.m"
-            timestampString = "453394359.354808"
+            timestampString = "453737862.677644"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
             landmarkName = "+query:"
             landmarkType = "5">
          </BreakpointContent>
@@ -359,13 +359,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "bweather/UserDefaultDataHelper.m"
-            timestampString = "453711140.779109"
+            filePath = "bweather/RealTimeDataEntity.m"
+            timestampString = "453800451.064474"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
-            landmarkName = "+getUUID"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
+            landmarkName = "-requestFailed:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -375,13 +375,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "bweather/UserDefaultDataHelper.m"
-            timestampString = "453711142.563841"
+            filePath = "bweather/RealTimeViewController.m"
+            timestampString = "453801002.967786"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
-            landmarkName = "+getUUID"
+            startingLineNumber = "264"
+            endingLineNumber = "264"
+            landmarkName = "-didReceiveData:Device:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bweather/NSString+encrypto.m"
+            timestampString = "453801451.465551"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "-dictionaryWithJsonString"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

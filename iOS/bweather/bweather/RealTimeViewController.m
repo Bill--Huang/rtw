@@ -22,7 +22,7 @@
     self.tabBarController.delegate = self;
     self.blunoManager = [DFBlunoManager sharedInstance];
     self.blunoManager.delegate = self;
-    self.aryDevices = [[NSMutableArray alloc] init];
+    self.realTimeDataEntity = [[RealTimeDataEntity alloc] init];
     
     [self resetData];
 }
@@ -48,7 +48,7 @@
 }
 
 #pragma mark - TableView Delegate
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     return @"";
 }
 
@@ -56,7 +56,7 @@
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 3;
 }
 
@@ -95,13 +95,10 @@
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-
-{
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    //    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    
-    //    [cell setSelectionStyle:UITableViewCellSelectionStyleNone]; （这种是没有点击后的阴影效果)
+//    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+//    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     cell.selected = NO;
 }
@@ -122,10 +119,6 @@
 
 #pragma mark - BLE Actions
 - (IBAction)actionAddDeviceButton:(id)sender {
-    //    [self.aryDevices removeAllObjects];
-    //[self.tbDevices reloadData];
-    //[self.SearchIndicator startAnimating];
-    //self.viewDevices.hidden = NO;
     
     // 长时间没搜索到设备，自动停止
     self.timeOutTimerForDeviceScan = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(timerFinished:) userInfo:nil repeats:NO];
@@ -135,12 +128,11 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [self.blunoManager scan];
     });
-    
-    
 }
 
 - (void) timerFinished: (NSTimer *)timer {
-    // can not find blue device in 5s
+    
+    // can not find blue device in 5s, remove hud
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.hud removeFromSuperview];
     });
@@ -152,7 +144,6 @@
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         [hud removeFromSuperview];
     });
-    
     
     [self.blunoManager stop];
 }
@@ -171,14 +162,10 @@
 
 #pragma mark - DFBlunoDelegate
 -(void)bleDidUpdateState:(BOOL)bleSupported {
-    //    if(bleSupported)
-    //    {
-    //        [self.blunoManager scan];
-    //    }
+    //
 }
 
--(void)didDiscoverDevice:(DFBlunoDevice*)dev
-{
+-(void)didDiscoverDevice:(DFBlunoDevice *)dev {
     if(self.blunoDev != nil) {
         [self.blunoManager stop];
     } else {
@@ -202,9 +189,11 @@
     self.cityLabel.hidden = NO;
     
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:USER_GPS_DATA][HAVE_GPS_DATA] intValue] == 1) {
+        
         // have gps
         self.cityLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:USER_GPS_DATA][GPS_CITY];
     } else {
+        
         // not gps show alert view
         self.cityLabel.text = @"多云";
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"多云" message:@"多云无法访问您的位置 \n 请前往设置, 开启定位服务" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
@@ -222,9 +211,7 @@
 }
 
 -(void)didDisconnectDevice:(DFBlunoDevice*)dev {
-    //self.lbReady.text = @"Not Ready!";
     self.blunoDev = nil;
-    
     self.addButton.hidden = NO;
     self.tableView.hidden = YES;
     self.cityLabel.hidden = YES;
@@ -233,32 +220,48 @@
 }
 
 -(void)didWriteData:(DFBlunoDevice*)dev {
-    
+    //
 }
 
 -(void)didReceiveData:(NSData*)data Device:(DFBlunoDevice*)dev {
-    // 1 -> temperature 2 -> humidity 3 -> pm2.5
+    
+    // prefix: 1 -> temperature
+    //         2 -> humidity
+    //         3 -> pm2.5
     
     NSString *temp = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     NSRange range = [temp rangeOfString:@":"];
-    NSString *prefix = [temp substringToIndex: range.location];
-    NSString *dataS = [temp substringFromIndex: range.location + 1];
-    
-    if([prefix isEqualToString:@"1"] && self.temperatureData == nil) {
-        self.temperatureData = [NSString stringWithFormat:@"%li", (long)[dataS integerValue]];
-    }
-    
-    if([prefix isEqualToString:@"2"] && self.humidityData == nil) {
-        self.humidityData = [NSString stringWithFormat:@"%li", (long)[dataS integerValue]];
-    }
-    
-    if([prefix isEqualToString:@"3"] && self.pm25Data == nil) {
-        self.pm25Data = dataS;
-    }
-    
-    
-    if(self.pm25Data != nil && self.temperatureData != nil && self.humidityData != nil) {
-        [self.tableView reloadData];
+    if (range.length >= 1) {
+        NSString *prefix = [temp substringToIndex: range.location];
+        NSString *dataS = [temp substringFromIndex: range.location + 1];
+        
+        NSLog(temp);
+        
+        if([prefix isEqualToString:@"1"] && self.temperatureData == nil) {
+            self.temperatureData = [NSString stringWithFormat:@"%li", (long)[dataS integerValue]];
+            [self.realTimeDataEntity addTemperatureData: self.temperatureData];
+        }
+        
+        if([prefix isEqualToString:@"2"] && self.humidityData == nil) {
+            self.humidityData = [NSString stringWithFormat:@"%li", (long)[dataS integerValue]];
+            [self.realTimeDataEntity addHumidityData: self.humidityData];
+        }
+        
+        if([prefix isEqualToString:@"3"] && self.pm25Data == nil) {
+            if ( [dataS floatValue] <= 0) {
+                dataS = @"0";
+            }
+            
+            self.pm25Data = dataS;
+            [self.realTimeDataEntity addPM25Data: self.pm25Data];
+        }
+        
+        //
+        if(self.pm25Data != nil && self.temperatureData != nil && self.humidityData != nil) {
+            [self.tableView reloadData];
+        }
+    } else {
+        NSLog(@"error data from bluetooth: %@", temp);
     }
 }
 
@@ -271,7 +274,6 @@
 }
 
 #pragma - mark UIApplicationNotification
-
 - (void) applicationWillResignActive: (UIApplication *)application {
     [self inactiveRealTimePage];
 }
@@ -289,6 +291,8 @@
         
         [self sendSignalToDevice: STOP_SEND_DATA_DISCONNECT];
         [self.blunoManager disconnectToDevice: self.blunoDev];
+        
+        [self.realTimeDataEntity reset];
     }
 }
 

@@ -17,5 +17,11 @@
     return dateString;
 }
 
+- (NSString *) getTodayString {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSString *dateString = [dateFormatter stringFromDate:self];
+    return dateString;
+}
 
 @end

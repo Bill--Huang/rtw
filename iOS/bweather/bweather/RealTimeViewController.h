@@ -11,12 +11,12 @@
 #import <UIKit/UIKit.h>
 #import "DFBlunoManager.h"
 #import "MBProgressHUD.h"
+#import "RealTimeDataEntity.h"
 
 @interface RealTimeViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, DFBlunoDelegate,  UITabBarControllerDelegate>
 
 @property(strong, nonatomic) DFBlunoManager* blunoManager;
 @property(strong, nonatomic) DFBlunoDevice* blunoDev;
-@property(strong, nonatomic) NSMutableArray* aryDevices;
 
 @property (strong, nonatomic) IBOutlet UIButton *addButton;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -25,10 +25,13 @@
 @property (strong, nonatomic) MBProgressHUD *hud;
 @property (strong, nonatomic) NSTimer *timeOutTimerForDeviceScan;
 
-// use array, calculate average
+// use array, calculate average, send to server
+@property (strong, nonatomic) RealTimeDataEntity *realTimeDataEntity;
 @property (strong, nonatomic) NSString *temperatureData;
 @property (strong, nonatomic) NSString *humidityData;
 @property (strong, nonatomic) NSString *pm25Data;
+
+
 
 - (IBAction) actionAddDeviceButton:(id)sender;
 
