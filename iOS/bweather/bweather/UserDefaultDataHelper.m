@@ -95,12 +95,6 @@
 + (NSString *) uuid {
     
     NSString *result = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
-    
-//    CFUUIDRef puuid = CFUUIDCreate( nil );
-//    CFStringRef uuidString = CFUUIDCreateString( nil, puuid );
-//    NSString * result = (NSString *)CFBridgingRelease(CFStringCreateCopy( NULL, uuidString));
-//    CFRelease(puuid);
-//    CFRelease(uuidString);
     return result;
 }
 

@@ -20,7 +20,7 @@
 	if ($conn->connect_error) {
 	    returnErrorMessage("Connection failed: " . $conn->connect_error);
 	}
-	//insertData($conn, $uuid, $location, $city, $temperature, $humidity, $pm25, $date);
+	
 	if(isUUIDExist($conn, $uuid)) {
 		// update
 		update($conn, $uuid, $location, $city, $temperature, $humidity, $pm25, $date);
@@ -108,7 +108,7 @@
 			$tempTemperature = $row['temperature'] / $tempCount ;
 			$tempHumidity = $row['humidity'] / $tempCount;
 			$tempPM25 = $row['pm25'] / $tempCount;
-			// $data = "data";
+
 			$data = Array('location' => $row['location'],
 				'city' => $row['name'],
 				'temperature' => $tempTemperature,
@@ -118,7 +118,6 @@
 
 			$arr = Array('result' => 'success', 'data' => $data);
 			sendResponse(200, json_encode($arr));
-			// echo "test";
 		} else {
 			returnErrorMessage("Error: GetAverageData <br>");
 		}

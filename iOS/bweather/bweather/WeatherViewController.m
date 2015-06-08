@@ -87,13 +87,11 @@
 
 
 - (void) getGPSLocation {
-    
     self.locationManager = [[CLLocationManager alloc]init];
     self.locationManager.delegate = self;
     [self.locationManager requestWhenInUseAuthorization];
     self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
     self.locationManager.distanceFilter = 1000;
-//    [self.locationManager stopUpdatingLocation];
     [self.locationManager startUpdatingLocation];
 }
 

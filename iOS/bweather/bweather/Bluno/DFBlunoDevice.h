@@ -7,8 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DFBlunoDevice : NSObject
-{
+@interface DFBlunoDevice : NSObject {
 @public
     BOOL _bReadyToWrite;
 }

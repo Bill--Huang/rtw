@@ -21,6 +21,7 @@ NSInteger nickNameSort(id user1, id user2, void *context) {
 }
 
 @implementation HandleCityData
+
 -(NSArray *)cityDataDidHandled {
     storeCities = [[NSMutableArray alloc] init];
     
@@ -58,7 +59,6 @@ NSInteger nickNameSort(id user1, id user2, void *context) {
                     //都放在存储数组里
                     [storeCities addObject:newCity];
                 }
-                
             }
         } else {
             for (NSDictionary * cityDetail in firstArr) {

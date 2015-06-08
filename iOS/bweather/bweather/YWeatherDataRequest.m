@@ -33,7 +33,7 @@
         unit = @"f";
     }
     
-    // Example: SELECT * FROM weather.forecast WHERE woeid="2502265" or woeid="56043481"
+    // Example: SELECT * FROM weather.forecast WHERE woeid="2502265" or woeid="56043481" or ...
     NSString *woeidParmas = [NSString stringWithFormat:@"u = '%@' and woeid='%@'", unit, [self.woeidArray objectAtIndex:0]];
     if(self.woeidArray.count > 1) {
         for (int i = 1; i < self.woeidArray.count; i++) {
@@ -42,7 +42,7 @@
         }
     }
     
-    // get woeid by cityinfo and get weather data
+    // get weather data
     NSDictionary* weatherResults = [YQL query:
                                     [NSString stringWithFormat: @"select * from weather.forecast where u = 'c' and %@", woeidParmas]];
     

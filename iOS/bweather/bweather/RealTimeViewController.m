@@ -101,7 +101,20 @@
 //    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     cell.selected = NO;
+    
+    if (indexPath.row == 0) {
+        // temperature
+    } else if (indexPath.row == 1) {
+        // humidity
+    } else if (indexPath.row == 2) {
+        // pm25
+        // show data
+        self.pm25Label.text = [NSString stringWithFormat:@"%i", [self.realTimeDataEntity.pm25AverageData intValue]];
+        self.pm25ConditionLabel.text = [self getPM25StandardConditionText: self.realTimeDataEntity.pm25AverageData];
+        self.pm25TemplateView.hidden = NO;
+    }
 }
+
 
 - (void) setLastCellSeperatorToLeft: (UITableViewCell*) cell {
     if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
@@ -294,6 +307,36 @@
         
         [self.realTimeDataEntity reset];
     }
+}
+
+#pragma - mark PM25 Template View Event
+- (IBAction) closePM25TemplateViewButtonEvent:(id)sender {
+    // close view
+    self.pm25TemplateView.hidden = YES;
+}
+
+- (NSString *) getPM25StandardConditionText:(NSString *) data {
+    NSString *result = @"";
+    int dataf = [data intValue];
+    if ([data isEqualToString:@"--"]) {
+        result = @"暂无数据";
+    } else if (dataf >= 0 && dataf < 35) {
+        result = @"空气质量优";
+    } else if (dataf >= 35 && dataf < 75) {
+        result = @"空气质量良好";
+    } else if (dataf >= 75 && dataf < 115) {
+        result = @"空气轻度污染";
+    } else if (dataf >= 115 && dataf < 150) {
+        result = @"空气中度污染";
+    } else if (dataf >= 150 && dataf < 250) {
+        result = @"空气重度污染";
+    } else if (dataf >= 250 && dataf < 500) {
+        result = @"空气严重污染";
+    } else if (dataf >= 500) {
+        result = @"空气污染爆表";
+    }
+    
+    return result;
 }
 
 @end

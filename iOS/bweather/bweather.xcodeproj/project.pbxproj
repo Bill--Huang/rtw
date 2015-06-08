@@ -257,10 +257,6 @@
 		A97C2F831B05964300783FC2 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A9DABBE11AF4EC0600B9D091 /* WeatherViewController.h */,
-				A9DABBE21AF4EC0600B9D091 /* WeatherViewController.m */,
-				A97C2F801B05963700783FC2 /* RealTimeViewController.h */,
-				A97C2F811B05963700783FC2 /* RealTimeViewController.m */,
 				A97C2FA21B06489500783FC2 /* DayForecastCell.h */,
 				A97C2FA31B06489500783FC2 /* DayForecastCell.m */,
 				A97C2FA41B06489500783FC2 /* DayForecastCell.xib */,
@@ -271,10 +267,6 @@
 				A9980E781B07556100D4DA00 /* RealTimeTableViewCell.m */,
 				A990567A1B087A1600445953 /* RTTableViewCell.h */,
 				A990567B1B087A1600445953 /* RTTableViewCell.m */,
-				A96ADB2E1B08D46A003FA8B8 /* SettingViewController.h */,
-				A96ADB2F1B08D46A003FA8B8 /* SettingViewController.m */,
-				A9403D0D1B0996CB00F8A760 /* CitySelectViewController.h */,
-				A9403D0E1B0996CC00F8A760 /* CitySelectViewController.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -369,8 +361,7 @@
 		A9DABBD91AF4EC0600B9D091 /* bweather */ = {
 			isa = PBXGroup;
 			children = (
-				A97C2F851B05A5C500783FC2 /* Lantinghei.ttc */,
-				A9403D101B09B6CE00F8A760 /* BaiduMap_cityCenter.txt */,
+				A9F7BDC11B11F8850031DE3D /* Controller */,
 				A97C2F831B05964300783FC2 /* View */,
 				A91FE3121AFA4E1800DCDF2F /* Model */,
 				A98FA9531AF91F8F00E0C4E1 /* lib */,
@@ -381,6 +372,8 @@
 				A9DABBE41AF4EC0600B9D091 /* Main.storyboard */,
 				A9DABBE71AF4EC0600B9D091 /* Images.xcassets */,
 				A9DABBE91AF4EC0600B9D091 /* LaunchScreen.xib */,
+				A97C2F851B05A5C500783FC2 /* Lantinghei.ttc */,
+				A9403D101B09B6CE00F8A760 /* BaiduMap_cityCenter.txt */,
 				A9DABBDA1AF4EC0600B9D091 /* Supporting Files */,
 			);
 			path = bweather;
@@ -410,6 +403,21 @@
 				A9DABBF51AF4EC0600B9D091 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A9F7BDC11B11F8850031DE3D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A9DABBE11AF4EC0600B9D091 /* WeatherViewController.h */,
+				A9DABBE21AF4EC0600B9D091 /* WeatherViewController.m */,
+				A97C2F801B05963700783FC2 /* RealTimeViewController.h */,
+				A97C2F811B05963700783FC2 /* RealTimeViewController.m */,
+				A96ADB2E1B08D46A003FA8B8 /* SettingViewController.h */,
+				A96ADB2F1B08D46A003FA8B8 /* SettingViewController.m */,
+				A9403D0D1B0996CB00F8A760 /* CitySelectViewController.h */,
+				A9403D0E1B0996CC00F8A760 /* CitySelectViewController.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		B3314883096D9C81408FF348 /* Frameworks */ = {

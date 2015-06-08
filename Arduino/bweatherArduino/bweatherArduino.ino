@@ -49,7 +49,7 @@ void loop() {
 }
 
 void getTemperatureAndHumidity() {
-  boolean isRead = dht.read();  //读取数据
+  boolean isRead = dht.read();
   if(isRead) {
     float tempTemperature = dht.readTemperature();
     Serial.println(temperaturePrefix + tempTemperature);
@@ -58,24 +58,30 @@ void getTemperatureAndHumidity() {
     float tempHumidity = dht.readHumidity();
     Serial.println(humidityPrefix + tempHumidity);
     delay(1000);
-  }
-  
+  } 
 }
 
 void getPM25Data() {
-  digitalWrite(GP_LEDPOWER_PIN, LOW);// 开启内部 LED
-  delayMicroseconds(samplingTime);//  开启 LED 后的 280us 的等待时间
+  // 开启内部 LED
+  digitalWrite(GP_LEDPOWER_PIN, LOW);
+  // 开启 LED 后的 280us 的等待时间
+  delayMicroseconds(samplingTime);
+  // 读取模拟值
+  voMeasured = analogRead(GP_MEASURE_PIN);
+  // 40us 等待时间
+  delayMicroseconds(deltaTime);
+  // 关闭 LED
+  digitalWrite(GP_LEDPOWER_PIN, HIGH);
+  // 0 - 5V mapped to 0 - 1023 integer values recover voltage
+  delayMicroseconds(sleepTime);
+  // 将模拟值转换为电压值
+  calcVoltage = voMeasured * (5.0 / 1024.0);
   
-  voMeasured = analogRead(GP_MEASURE_PIN);//  读取模拟值
+  // linear eqaution taken from http:www.howmuchsnow.com/arduino/airquality/    
+  // (Chris Nafis (c) 2012)
+  // 将电压值转换为粉尘密度输出单位 ug/m3
+  dustDensity = 1000 * (0.17 * calcVoltage - 0.1);
   
-  delayMicroseconds(deltaTime);//  40us 等待时间
-  digitalWrite(GP_LEDPOWER_PIN, HIGH);//  关闭 LED
-  delayMicroseconds(sleepTime);// 0 - 5V mapped to 0 - 1023 integer values recover voltage
-  calcVoltage = voMeasured * (5.0 / 1024.0);// 将模拟值转换为电压值
-  
-  //linear eqaution taken from http:www.howmuchsnow.com/arduino/airquality/Chris Nafis (c) 2012
-  dustDensity = 1000 * (0.17 * calcVoltage - 0.1);// 将电压值转换为粉尘密度输出单位
-    
   Serial.println(pm25Prefix + dustDensity);
   delay(1000);
 }

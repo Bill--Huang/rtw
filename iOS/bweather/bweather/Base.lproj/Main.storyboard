@@ -5,11 +5,14 @@
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="Lantinghei.ttc">
-            <string>FZLTXHK--GBK1-0</string>
-            <string>FZLTXHK--GBK1-0</string>
-            <string>FZLTXHK--GBK1-0</string>
-            <string>FZLTXHK--GBK1-0</string>
             <string>FZLTZHK--GBK1-0</string>
+            <string>FZLTXHK--GBK1-0</string>
+            <string>FZLTXHK--GBK1-0</string>
+            <string>FZLTXHK--GBK1-0</string>
+            <string>FZLTXHK--GBK1-0</string>
+            <string>FZLTXHK--GBK1-0</string>
+            <string>FZLTXHK--GBK1-0</string>
+            <string>FZLTXHK--GBK1-0</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -112,6 +115,42 @@
                                     <action selector="actionAddDeviceButton:" destination="IE5-YZ-b2t" eventType="touchUpInside" id="S1f-rv-WcP"/>
                                 </connections>
                             </button>
+                            <view hidden="YES" contentMode="scaleToFill" id="2v3-e2-ppI" userLabel="pm25View">
+                                <rect key="frame" x="37" y="120" width="300" height="433"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pm25template" id="7yt-i8-LTz" userLabel="pm25Template">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="433"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="50" id="QAy-da-iKX" userLabel="pm25Label">
+                                        <rect key="frame" x="111" y="96" width="127" height="88"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="FZLTXHK--GBK1-0" family="Lantinghei SC" pointSize="80"/>
+                                        <color key="textColor" red="0.12941176470588237" green="0.13725490196078433" blue="0.12941176470588237" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="空气质量优" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="96U-Cp-K9c" userLabel="pm25Condition">
+                                        <rect key="frame" x="128" y="182" width="110" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="FZLTXHK--GBK1-0" family="Lantinghei SC" pointSize="15"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gIG-wW-ZJS" userLabel="CloseButton">
+                                        <rect key="frame" x="245" y="18" width="46" height="33"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="FZLTXHK--GBK1-0" family="Lantinghei SC" pointSize="15"/>
+                                        <state key="normal" title="完成">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="closePM25TemplateViewButtonEvent:" destination="IE5-YZ-b2t" eventType="touchUpInside" id="Qt4-RJ-bD2"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -119,6 +158,9 @@
                     <connections>
                         <outlet property="addButton" destination="y2E-TI-JJS" id="ONb-i3-4Gr"/>
                         <outlet property="cityLabel" destination="Hgg-Nf-uhf" id="P1Y-rJ-R8E"/>
+                        <outlet property="pm25ConditionLabel" destination="96U-Cp-K9c" id="fPy-JO-1DP"/>
+                        <outlet property="pm25Label" destination="QAy-da-iKX" id="qd1-aW-eVM"/>
+                        <outlet property="pm25TemplateView" destination="2v3-e2-ppI" id="AKJ-cZ-iuc"/>
                         <outlet property="tableView" destination="ocH-sM-a5c" id="7L1-bn-Maw"/>
                     </connections>
                 </viewController>
@@ -231,13 +273,13 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="BPd-sr-HrI">
                                 <rect key="frame" x="0.0" y="108" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="使用温度单位 C" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Biv-HQ-jTx">
                                 <rect key="frame" x="15" y="119" width="200" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="单位" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Al8-ib-wOf">
@@ -271,7 +313,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
                         <outlet property="addCityButton" destination="3AZ-cG-Bsk" id="One-4e-i3S"/>
@@ -380,6 +422,7 @@
         <image name="bg" width="375" height="667"/>
         <image name="cloudbutton" width="32" height="19"/>
         <image name="devicebutton" width="33" height="19"/>
+        <image name="pm25template" width="450" height="650"/>
         <image name="refreshbutton" width="32" height="32"/>
         <image name="settingbutton" width="32" height="32"/>
     </resources>

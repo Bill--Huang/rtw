@@ -31,6 +31,11 @@
 @property (strong, nonatomic) NSString *humidityData;
 @property (strong, nonatomic) NSString *pm25Data;
 
+// for pm25 template
+@property (strong, nonatomic) IBOutlet UIView *pm25TemplateView;
+@property (strong, nonatomic) IBOutlet UILabel *pm25Label;
+@property (strong, nonatomic) IBOutlet UILabel *pm25ConditionLabel;
+- (IBAction) closePM25TemplateViewButtonEvent:(id)sender;
 
 
 - (IBAction) actionAddDeviceButton:(id)sender;

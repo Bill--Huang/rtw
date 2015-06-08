@@ -12,7 +12,7 @@
 #import "NSString+encrypto.h"
 
 #define MAX_COUNT 5
-#define SERVER_URL @"http://192.168.1.102:8080/bweather/storeweatherinfo.php"
+#define SERVER_URL @"http://120.26.115.186/bweather/storeweatherinfo.php"
 
 @implementation RealTimeDataEntity
 
@@ -21,6 +21,10 @@
         self.temperatureArray = [[NSMutableArray alloc] init];
         self.humidityArray = [[NSMutableArray alloc] init];
         self.pm25Array = [[NSMutableArray alloc] init];
+        
+        self.temperatureAverageData = @"--";
+        self.humidityAverageData = @"--";
+        self.pm25AverageData = @"--";
     }
     
     return self;
@@ -115,6 +119,9 @@
         NSDictionary *dic = [response dictionaryWithJsonString];
         if([dic[@"result"] isEqualToString:@"success"]) {
             NSLog(response);
+            self.temperatureAverageData = [NSString stringWithFormat:@"%@", dic[@"data"][@"temperature"]];
+            self.humidityAverageData = [NSString stringWithFormat:@"%@", dic[@"data"][@"humidity"]];
+            self.pm25AverageData = [NSString stringWithFormat:@"%@", dic[@"data"][@"pm25"]];
         } else {
             // error
             // NSLog(dic[@"data"]);
